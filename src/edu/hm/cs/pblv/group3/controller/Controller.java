@@ -25,7 +25,7 @@ public class Controller {
 	@PostMapping("/test")
 	public String test() {
 		JsonResponse response = new JsonResponse();
-		return response.getResponse().asText();
+		return response.getResponse().toString();
 	}
 
 }
