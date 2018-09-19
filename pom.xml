@@ -8,10 +8,6 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <properties>
-        <start-class>edu.hm.cs.pblv.group3.main.Main</start-class>
-    </properties>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -36,6 +32,12 @@
                         <goals>
                             <goal>repackage</goal>
                         </goals>
+                        <configuration>
+                            <classifier>spring-boot</classifier>
+                            <mainClass>
+                                edu.hm.cs.pblv.group3.main.Main
+                            </mainClass>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
