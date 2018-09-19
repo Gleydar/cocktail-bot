@@ -1,7 +1,7 @@
-package main.java.group3.controller.util;
+package edu.hm.cs.pblv.group3.controller.util;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import main.java.group3.entities.Cocktail;
+import edu.hm.cs.pblv.group3.entities.Cocktail;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package main.java.group3.controller.util;
+package edu.hm.cs.pblv.group3.controller.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
