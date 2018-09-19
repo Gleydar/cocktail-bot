@@ -1,10 +1,10 @@
-package edu.hm.cs.pblv.group3.main;
+package main.java.group3.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan(basePackages = "edu.hm.cs.pblv.group3")
+@ComponentScan(basePackages = "main.java.group3")
 @SpringBootApplication
 public class Main {
 	

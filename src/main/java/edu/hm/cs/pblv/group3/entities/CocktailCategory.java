@@ -1,4 +1,4 @@
-package edu.hm.cs.pblv.group3.entities;
+package main.java.group3.entities;
 
 public enum CocktailCategory {
 	

@@ -1,4 +1,4 @@
-package edu.hm.cs.pblv.group3.entities;
+package main.java.group3.entities;
 
 import java.util.List;
 import java.util.Map;

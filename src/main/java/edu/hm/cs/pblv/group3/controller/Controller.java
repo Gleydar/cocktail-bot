@@ -1,7 +1,7 @@
-package edu.hm.cs.pblv.group3.controller;
+package main.java.group3.controller;
 
-import edu.hm.cs.pblv.group3.controller.util.JsonResponse;
-import edu.hm.cs.pblv.group3.entities.Cocktail;
+import main.java.group3.controller.util.JsonResponse;
+import main.java.group3.entities.Cocktail;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
