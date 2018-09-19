@@ -17,7 +17,6 @@ public class Main {
 			app.setDefaultProperties(Collections.singletonMap("server.port", System.getenv("PORT")));
 		}
 		app.run(args);
-		SpringApplication.run(Main.class, args);
 	}
 
 }
