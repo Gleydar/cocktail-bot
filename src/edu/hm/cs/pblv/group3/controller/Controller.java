@@ -1,13 +1,11 @@
 package edu.hm.cs.pblv.group3.controller;
 
-import java.util.Arrays;
-import java.util.List;
-
-import org.springframework.web.bind.annotation.RequestMapping;
+import edu.hm.cs.pblv.group3.controller.util.JsonResponse;
+import edu.hm.cs.pblv.group3.entities.Cocktail;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.hm.cs.pblv.group3.entities.Cocktail;
-import edu.hm.cs.pblv.group3.entities.CocktailGlass;
+import java.util.List;
 
 @RestController
 public class Controller {
@@ -24,9 +22,10 @@ public class Controller {
 			
 	}
 				
-	@RequestMapping("/test")
+	@PostMapping("/test")
 	public String test() {
-		return "bestanden";
+		JsonResponse response = new JsonResponse();
+		return response.getResponse().asText();
 	}
 
 }
