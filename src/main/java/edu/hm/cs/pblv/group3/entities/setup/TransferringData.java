@@ -3,27 +3,26 @@ package edu.hm.cs.pblv.group3.entities.setup;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class TransferingData {
-	
+public class TransferringData {
+
 	BufferedReader reader;
-	
-	public TransferingData(String dataPath) {
+
+	public TransferringData(String dataPath) {
 		try {
-            reader =   new java.io.BufferedReader(
-                        new java.io.FileReader(
-                            new java.io.File(dataPath)
-                        )
-                    );
-		 } catch (Exception e) {
-	            e.printStackTrace();
-	       }
+			reader = new java.io.BufferedReader(
+					new java.io.FileReader(
+							new java.io.File(dataPath)
+					)
+			);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-	
-	
-	
+
+
 	// Daten auslesen
-	
-	
+
+
 	public String[] readCSVLine() {
 		String tmp = "";
 		try {
@@ -33,13 +32,12 @@ public class TransferingData {
 			e.printStackTrace();
 		}
 		String[] tmp2 = tmp.split(";");
-		
+
 		return tmp2;
 	}
-	
-	
-	
+
+
 	// Daten aufbereiten
-	
-	
+
+
 }
