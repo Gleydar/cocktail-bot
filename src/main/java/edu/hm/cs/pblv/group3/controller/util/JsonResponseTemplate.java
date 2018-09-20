@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  */
 public class JsonResponseTemplate {
 
-	public static ObjectNode getRoot() {
+	public static ObjectNode getDefaultTemplate() {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode root = mapper.createObjectNode();
 
@@ -20,7 +20,10 @@ public class JsonResponseTemplate {
 		// Add payload specific for Actions on Google
 		ObjectNode payload = mapper.createObjectNode();
 
-		root.put("fulfillmentText", "Response!");
+		// TODO add context_back_to_start
+		ArrayNode contexts = mapper.createArrayNode();
+
+		root.set("contexts", contexts);
 		root.set("payload", payload);
 		root.set("fulfillmentMessages", fulfillmentMessages);
 		return root;
