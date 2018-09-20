@@ -1,4 +1,4 @@
-package edu.hm.cs.pblv.group3.entities.setup;
+package main.java.edu.hm.cs.pblv.group3.entities.setup;
 
 import java.io.BufferedReader;
 import java.io.IOException;

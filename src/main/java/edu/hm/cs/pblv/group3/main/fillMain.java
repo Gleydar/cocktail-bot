@@ -1,4 +1,4 @@
-package edu.hm.cs.pblv.group3.entities.setup;
+package main.java.edu.hm.cs.pblv.group3.main;
 
 
 import java.util.ArrayList;
@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import main.java.edu.hm.cs.pblv.group3.entities.setup.transferingData;
 
 public class fillMain {
 
