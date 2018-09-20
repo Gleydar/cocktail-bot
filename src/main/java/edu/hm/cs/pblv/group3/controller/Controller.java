@@ -18,6 +18,7 @@ public class Controller {
 	@PostMapping("/cocktails")
 	public String cocktails(@RequestBody JsonNode root) {
 		String session = root.get("session").asText();
+		String language; // TODO
 		JsonResponse response = new JsonResponse(session);
 		return response.getResponse().toString();
 	}
