@@ -1,13 +1,13 @@
-package main.java.edu.hm.cs.pblv.group3.entities.setup;
+package edu.hm.cs.pblv.group3.entities.setup;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class transferingData {
+public class TransferingData {
 	
 	BufferedReader reader;
 	
-	transferingData(String dataPath) {
+	public TransferingData(String dataPath) {
 		try {
             reader =   new java.io.BufferedReader(
                         new java.io.FileReader(
@@ -24,7 +24,7 @@ public class transferingData {
 	// Daten auslesen
 	
 	
-	String[] readCSVLine() {
+	public String[] readCSVLine() {
 		String tmp = "";
 		try {
 			tmp = reader.readLine();

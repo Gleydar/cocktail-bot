@@ -1,5 +1,4 @@
-package main.java.edu.hm.cs.pblv.group3.main;
-
+package edu.hm.cs.pblv.group3.main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,29 +6,38 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import main.java.edu.hm.cs.pblv.group3.entities.setup.transferingData;
+import edu.hm.cs.pblv.group3.entities.setup.TransferingData;
 
-public class fillMain {
 
-	public fillMain() {
+public class FillMain {
+
+	public FillMain() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		transferingData data = new transferingData("resources/all_drinks.csv");
+		TransferingData data = new TransferingData("resources/all_drinks.csv");
 		String [] tmp = data.readCSVLine();
-		tmp = data.readCSVLine();
 		Set<String> ingredients = new HashSet<>();
-		
-		for (int i = 0; i < tmp.length;i++) {
+		while (tmp != null) {
+			tmp = data.readCSVLine();
+			for (int i = 9; i < 24;i++) {
 			// Hier rausschreiben der Ingredients 10-24
-			if (i >= 10  && i <= 24) {
+		//	if (tmp[i] != "") {
 				ingredients.add(tmp[i]);
-			}
+		//	}
 		}
-		System.out.println(Arrays.asList(tmp));
-		System.out.println(ingredients.toString());
+		}
+		
+		
+		
+		
+		
+		for (String s : ingredients) {
+			System.out.println(s + ", ");
+		}
+		
 	}
 
 }
