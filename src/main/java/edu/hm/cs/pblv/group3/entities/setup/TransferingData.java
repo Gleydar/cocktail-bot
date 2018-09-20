@@ -1,6 +1,7 @@
 package edu.hm.cs.pblv.group3.entities.setup;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 
 public class TransferingData {
@@ -9,10 +10,12 @@ public class TransferingData {
 	
 	public TransferingData(String dataPath) {
 		try {
+			File f = new File(dataPath);
+			if (!f.exists()) {
+				System.out.println("variable = " + "asdf");
+			}
             reader =   new java.io.BufferedReader(
-                        new java.io.FileReader(
-                            new java.io.File(dataPath)
-                        )
+                        new java.io.FileReader(f)
                     );
 		 } catch (Exception e) {
 	            e.printStackTrace();
@@ -28,13 +31,18 @@ public class TransferingData {
 		String tmp = "";
 		try {
 			tmp = reader.readLine();
+			
+			if (tmp != null) {
+				String[] tmp2 = tmp.split(",");
+				return tmp2;
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String[] tmp2 = tmp.split(";");
 		
-		return tmp2;
+			return null;
+		
 	}
 	
 	

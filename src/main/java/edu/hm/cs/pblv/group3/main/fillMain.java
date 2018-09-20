@@ -17,17 +17,32 @@ public class FillMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		TransferingData data = new TransferingData("resources/all_drinks.csv");
+		TransferingData data = new TransferingData("src/main/resources/all_drinks.csv");
 		String [] tmp = data.readCSVLine();
 		Set<String> ingredients = new HashSet<>();
-		while (tmp != null) {
-			tmp = data.readCSVLine();
-			for (int i = 9; i < 24;i++) {
-			// Hier rausschreiben der Ingredients 10-24
-		//	if (tmp[i] != "") {
-				ingredients.add(tmp[i]);
-		//	}
-		}
+		tmp = data.readCSVLine();
+		int count = 0;
+		try {
+			while (tmp != null) {	
+				System.out.println(count);
+				for (int i = 9; i < 24;i++) {
+				// Hier rausschreiben der Ingredients 10-24
+				if (tmp[i].equals("")) {
+					
+					ingredients.add(tmp[i]);
+				//	System.out.println(tmp[i] + ": " +count);
+					
+				}
+				}
+			//	System.out.println(Arrays.asList(tmp).toString());
+				tmp = data.readCSVLine();
+				count++;
+				
+			}
+			
+			
+		} catch (ArrayIndexOutOfBoundsException e) {
+			e.printStackTrace();
 		}
 		
 		
