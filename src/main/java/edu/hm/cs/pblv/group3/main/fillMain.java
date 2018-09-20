@@ -24,7 +24,7 @@ public class FillMain {
 		int count = 0;
 		try {
 			while (tmp != null) {	
-				System.out.println(count);
+				// System.out.println(count);
 				for (int i = 9; i < 24;i++) {
 				// Hier rausschreiben der Ingredients 10-24
 				if (tmp[i].equals("")) {
@@ -34,7 +34,7 @@ public class FillMain {
 					
 				}
 				}
-			//	System.out.println(Arrays.asList(tmp).toString());
+				System.out.println(Arrays.asList(tmp).toString());
 				tmp = data.readCSVLine();
 				count++;
 				
