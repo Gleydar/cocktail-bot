@@ -21,22 +21,18 @@ public class FillMain {
 		String [] tmp = data.readCSVLine();
 		Set<String> ingredients = new HashSet<>();
 		tmp = data.readCSVLine();
-		int count = 0;
 		try {
 			while (tmp != null) {	
 				// System.out.println(count);
 				for (int i = 9; i < 24;i++) {
 				// Hier rausschreiben der Ingredients 10-24
-				if (tmp[i].equals("")) {
+				if (!tmp[i].equals("")) {
 					
 					ingredients.add(tmp[i]);
-				//	System.out.println(tmp[i] + ": " +count);
 					
 				}
 				}
-				System.out.println(Arrays.asList(tmp).toString());
 				tmp = data.readCSVLine();
-				count++;
 				
 			}
 			
@@ -50,7 +46,7 @@ public class FillMain {
 		
 		
 		for (String s : ingredients) {
-			System.out.println(s + ", ");
+		//	System.out.println(s + ", ");
 		}
 		
 	}
