@@ -2,6 +2,8 @@ package edu.hm.cs.pblv.group3.controller;
 
 import edu.hm.cs.pblv.group3.controller.util.JsonResponse;
 import edu.hm.cs.pblv.group3.entities.Cocktail;
+
+import org.assertj.core.util.Arrays;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +25,7 @@ public class Controller {
 	}
 				
 	@PostMapping("/test")
-	public String test() {
+	public String test() {		
 		JsonResponse response = new JsonResponse();
 		return response.getResponse().toString();
 	}
