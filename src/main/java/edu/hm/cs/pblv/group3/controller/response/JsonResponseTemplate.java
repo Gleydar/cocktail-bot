@@ -24,7 +24,7 @@ public class JsonResponseTemplate {
 		ArrayNode contexts = mapper.createArrayNode();
 
 		root.set("contexts", contexts);
-		root.set("payload", payload);
+	//	root.set("payload", payload);
 		root.set("fulfillmentMessages", fulfillmentMessages);
 		return root;
 	}
