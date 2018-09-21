@@ -17,27 +17,34 @@ public class Ingredient {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long ingredientId;
 	
-	@OneToMany(mappedBy = "ingredient")
-	private List<Ingredients> ingredients = new ArrayList<>();
 	
 	@Column(length = 128)
 	private String name;
 	
 	
 
-	public Ingredient(List<Ingredients> ingredients, String name) {
+
+	public Ingredient(long ingredientId, String name) {
 		super();
-		this.ingredients = ingredients;
+		this.ingredientId = ingredientId;
 		this.name = name;
 	}
 
-	public List<Ingredients> getIngredients() {
-		return ingredients;
+
+	public long getIngredientId() {
+		return ingredientId;
 	}
+
 
 	public String getName() {
 		return name;
 	}
+	
+	
+	
+	
+
+	
 	
 	
 

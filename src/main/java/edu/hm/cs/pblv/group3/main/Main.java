@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
+import edu.hm.cs.pblv.group3.entities.Ingredient;
+
 import java.sql.SQLException;
 import java.util.Collections;
 
@@ -19,6 +21,9 @@ public class Main {
 			app.setDefaultProperties(Collections.singletonMap("server.port", System.getenv("PORT")));
 		}
 		app.run(args);
+		
+//		new Ingredient(ingredients, name)
+		
 	}
 
 }
