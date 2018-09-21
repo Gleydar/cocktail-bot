@@ -1,4 +1,4 @@
-package edu.hm.cs.pblv.group3.controller.util;
+package edu.hm.cs.pblv.group3.controller.response.objects;
 
 /**
  * @author Konstantin on 20.09.2018.
@@ -8,7 +8,7 @@ public class Context {
 	private String name;
 	private static final int lifespanCount = 5;
 
-	Context(String session) {
+	public Context(String session) {
 		this.name = session + "/contexts/context_back_to_start";
 	}
 
