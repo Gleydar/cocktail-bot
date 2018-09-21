@@ -2,7 +2,6 @@ package edu.hm.cs.pblv.group3.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Collections;
@@ -17,7 +16,6 @@ public class Main {
 			app.setDefaultProperties(Collections.singletonMap("server.port", System.getenv("PORT")));
 		}
 		app.run(args);
-		FillMain.main(null);
 	}
 
 }
