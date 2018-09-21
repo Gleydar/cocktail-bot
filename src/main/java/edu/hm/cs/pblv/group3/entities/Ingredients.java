@@ -28,17 +28,39 @@ public class Ingredients {
 		this.oz = oz;
 	}
 
+	public long getIngredientsId() {
+		return ingredientsId;
+	}
+
+	public void setIngredientsId(long ingredientsId) {
+		this.ingredientsId = ingredientsId;
+	}
+
 	public Cocktail getCocktail() {
 		return cocktail;
+	}
+
+	public void setCocktail(Cocktail cocktail) {
+		this.cocktail = cocktail;
 	}
 
 	public Ingredient getIngredient() {
 		return ingredient;
 	}
 
+	public void setIngredient(Ingredient ingredient) {
+		this.ingredient = ingredient;
+	}
+
 	public int getOz() {
 		return oz;
 	}
+
+	public void setOz(int oz) {
+		this.oz = oz;
+	}
+
+	
 	
 	
 	

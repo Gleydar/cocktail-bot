@@ -15,6 +15,8 @@ import java.util.Collections;
 @SpringBootApplication
 public class Main {
 	
+	public static Ingredient ing;
+	
 	public static void main(String... args) throws SQLException {
 		SpringApplication app = new SpringApplication(Main.class);
 		if (System.getenv("PORT") != null) {
@@ -22,7 +24,7 @@ public class Main {
 		}
 		app.run(args);
 		
-//		new Ingredient(ingredients, name)
+		ing = new Ingredient(12, "Gin");
 		
 	}
 
