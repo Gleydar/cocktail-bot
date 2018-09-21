@@ -32,6 +32,7 @@ public class Controller {
 
 		JsonResponse response = new JsonResponse(session);
 		response.addMessage(message);
+		System.out.println(response.toString());
 		return response.getResponse().toString();
 	}
 
