@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
+import edu.hm.cs.pblv.group3.entities.Ingredient;
+
 import java.sql.SQLException;
 import java.util.Collections;
 
@@ -13,13 +15,17 @@ import java.util.Collections;
 @SpringBootApplication
 public class Main {
 	
+	public static Ingredient ing;
+	
 	public static void main(String... args) throws SQLException {
 		SpringApplication app = new SpringApplication(Main.class);
 		if (System.getenv("PORT") != null) {
 			app.setDefaultProperties(Collections.singletonMap("server.port", System.getenv("PORT")));
 		}
 		app.run(args);
-		FillMain.main(null);
+		
+		ing = new Ingredient(12, "Gin");
+		
 	}
 
 }

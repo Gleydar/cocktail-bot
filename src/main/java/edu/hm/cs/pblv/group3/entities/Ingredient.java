@@ -1,14 +1,11 @@
 package edu.hm.cs.pblv.group3.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
 public class Ingredient {
@@ -23,15 +20,52 @@ public class Ingredient {
 	
 	
 
-	public Ingredient(String name) {
+	public Ingredient() {
+		
+	}
+
+	public Ingredient(long ingredientId, String name) {
 		super();
+		this.ingredientId = ingredientId;
 		this.name = name;
 	}
+
+
+
+
+	public long getIngredientId() {
+		return ingredientId;
+	}
+
+
+
+
+	public void setIngredientId(long ingredientId) {
+		this.ingredientId = ingredientId;
+	}
+
+
 
 
 	public String getName() {
 		return name;
 	}
+
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	
+	
+	
+	
+	
+
+	
 	
 	
 
