@@ -36,11 +36,11 @@ public class Cocktail {
 	
 	private float rating;
 	
-	@OneToMany(mappedBy="cocktail")
-	private List<Ingredients> ingredients = new ArrayList<>();
+//	@OneToMany(mappedBy="cocktail")
+//	private List<Ingredient> ingredients = new ArrayList<>();
 
 	public Cocktail(long cockId, String name, String picture, boolean alcoholic, String instructions, String category,
-			String glass, float rating, List<Ingredients> ingredients) {
+			String glass, float rating/*, List<Ingredient> ingredients**/) {
 		super();
 		this.cockId = cockId;
 		this.name = name;
@@ -50,8 +50,10 @@ public class Cocktail {
 		this.category = category;
 		this.glass = glass;
 		this.rating = rating;
-		this.ingredients = ingredients;
+//		this.ingredients = ingredients;
 	}
+	
+	public Cocktail() {}
 
 	public long getCockId() {
 		return cockId;
@@ -117,13 +119,13 @@ public class Cocktail {
 		this.rating = rating;
 	}
 
-	public List<Ingredients> getIngredients() {
-		return ingredients;
-	}
-
-	public void setIngredients(List<Ingredients> ingredients) {
-		this.ingredients = ingredients;
-	}
+//	public List<Ingredient> getIngredients() {
+//		return ingredients;
+//	}
+//
+//	public void setIngredients(List<Ingredient> ingredients) {
+//		this.ingredients = ingredients;
+//	}
 
 	
 	

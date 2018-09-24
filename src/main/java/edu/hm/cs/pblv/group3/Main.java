@@ -12,7 +12,7 @@ import edu.hm.cs.pblv.group3.entities.Ingredient;
 @SpringBootApplication
 public class Main {
 	
-	public static Ingredient ing;
+//	public static Ingredient ing;s
 	
 	public static void main(String... args) throws SQLException {
 		SpringApplication app = new SpringApplication(Main.class);
