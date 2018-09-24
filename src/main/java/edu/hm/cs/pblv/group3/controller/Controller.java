@@ -1,26 +1,35 @@
 package edu.hm.cs.pblv.group3.controller;
 
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.hm.cs.pblv.group3.controller.util.JsonResponse;
-import edu.hm.cs.pblv.group3.entities.Cocktail;
+import edu.hm.cs.pblv.group3.entities.Ingredient;
+import edu.hm.cs.pblv.group3.services.IngredientService;
 
 @RestController
 public class Controller {
 	
+	private IngredientService is;
 	
-	List<Cocktail> cocktails;
+	@Autowired
+	public Controller(IngredientService is) {
+		this.is = is;		
+	}
 	
-				
-	public Controller() {
+	@RequestMapping("/add")
+	public String addTest(@RequestParam(value = "name") String name) {
 		
-//		List<Cocktail> cocktails = Arrays.asList(
-//				new Cocktail(true, "'57 Chevy with a White License Plate", Arrays.asList(CocktailCategory.COCKTAIL), "http://www.thecocktaildb.com/images/media/drink/qyyvtu1468878544.jpg", CocktailGlass.HIGHBALL, "1. Fill a rocks glass with ice\r\n2.add white creme de cacao and vodka\r\n3.stir",  
-//			
-			
+		Ingredient igs = new Ingredient();
+		igs.setName("NAME");
+		igs.setIngredientId(1234);
+		
+		is.addIngredient(igs);
+		
+		return "Ok";			
 	}
 				
 	@PostMapping("/test")

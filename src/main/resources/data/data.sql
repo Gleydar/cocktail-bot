@@ -1,1 +1,1 @@
-INSERT INTO Ingredient(name) VALUES ('Gin Tonic');
+INSERT INTO Ingredient (Name) VALUES ('Gin')

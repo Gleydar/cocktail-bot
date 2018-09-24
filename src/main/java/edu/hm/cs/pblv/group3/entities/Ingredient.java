@@ -18,8 +18,6 @@ public class Ingredient {
 	@Column(length = 128)
 	private String name;
 	
-	
-
 	public Ingredient() {
 		
 	}

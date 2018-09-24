@@ -21,6 +21,8 @@ public class Ingredients {
 	
 	private int oz;
 	
+	public Ingredients() { }
+	
 	public Ingredients(Cocktail cocktail, Ingredient ingredient, int oz) {
 		super();
 		this.cocktail = cocktail;
