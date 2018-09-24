@@ -8,6 +8,7 @@ import java.util.Set;
 
 import edu.hm.cs.pblv.group3.entities.Ingredient;
 import edu.hm.cs.pblv.group3.entities.setup.TransferingData;
+import edu.hm.cs.pblv.group3.repositories.IngredientRepository;
 
 
 public class FillMain {
@@ -18,6 +19,9 @@ public class FillMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		IngredientRepository ingredient = new IngredientRepository();
+		
 		TransferingData data = new TransferingData("src/main/resources/all_drinks.csv");
 		String [] tmp = data.readCSVLine();
 		Set<String> ingredients = new HashSet<>();
