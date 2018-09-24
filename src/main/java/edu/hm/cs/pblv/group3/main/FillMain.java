@@ -1,5 +1,7 @@
 package edu.hm.cs.pblv.group3.main;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -20,7 +22,12 @@ public class FillMain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		
+		try {
+			FileWriter writer = new FileWriter("src/main/resources/data/data.sql");
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		TransferingData data = new TransferingData("src/main/resources/all_drinks.csv");
 		String [] tmp = data.readCSVLine();
 		Set<String> ingredients = new HashSet<>();
@@ -44,13 +51,6 @@ public class FillMain {
 			e.printStackTrace();
 		}
 		
-		
-		
-		
-		
-		for (String s : ingredients) {
-		//	System.out.println(s + ", ");
-		}
 		
 	}
 	
