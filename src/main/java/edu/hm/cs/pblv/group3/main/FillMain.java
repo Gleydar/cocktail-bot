@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import edu.hm.cs.pblv.group3.entities.Ingredient;
 import edu.hm.cs.pblv.group3.entities.setup.TransferingData;
 
 
@@ -21,16 +22,15 @@ public class FillMain {
 		String [] tmp = data.readCSVLine();
 		Set<String> ingredients = new HashSet<>();
 		tmp = data.readCSVLine();
+		Ingredient ingredient;
 		try {
 			while (tmp != null) {	
 				// System.out.println(count);
 				for (int i = 9; i < 24;i++) {
 				// Hier rausschreiben der Ingredients 10-24
 				if (!tmp[i].equals("")) {
-					
-					ingredients.add(tmp[i]);
-					
-				}
+						ingredients.add(tmp[i]);
+					}
 				}
 				tmp = data.readCSVLine();
 				
@@ -48,6 +48,11 @@ public class FillMain {
 		for (String s : ingredients) {
 		//	System.out.println(s + ", ");
 		}
+		
+	}
+	
+	public static Set<String> getIngredients() {
+		return null;
 		
 	}
 
