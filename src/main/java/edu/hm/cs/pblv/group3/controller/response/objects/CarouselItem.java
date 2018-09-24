@@ -5,21 +5,21 @@ package edu.hm.cs.pblv.group3.controller.response.objects;
  */
 public class CarouselItem {
 
-	private CarouselItemInfoWrapper info;
+	private CarouselItemInfo info;
 	private String title;
 	private String description = "A nice description";
 //	private CarouselImage image;
 
 	public CarouselItem(String title) {
-		this.info = new CarouselItemInfoWrapper(new CarouselItemInfo(title));
+		this.info = new CarouselItemInfo(title);
 		this.title = title;
 	}
 
-	public CarouselItemInfoWrapper getInfo() {
+	public CarouselItemInfo getInfo() {
 		return info;
 	}
 
-	public void setInfo(CarouselItemInfoWrapper info) {
+	public void setInfo(CarouselItemInfo info) {
 		this.info = info;
 	}
 
