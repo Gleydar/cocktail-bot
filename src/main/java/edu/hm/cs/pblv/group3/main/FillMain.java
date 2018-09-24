@@ -20,7 +20,6 @@ public class FillMain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		IngredientRepository ingredient = new IngredientRepository();
 		
 		TransferingData data = new TransferingData("src/main/resources/all_drinks.csv");
 		String [] tmp = data.readCSVLine();
