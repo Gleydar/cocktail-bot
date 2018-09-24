@@ -1,17 +1,14 @@
-package edu.hm.cs.pblv.group3.main;
-
-import org.h2.tools.Server;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-
-import edu.hm.cs.pblv.group3.entities.Ingredient;
+package edu.hm.cs.pblv.group3;
 
 import java.sql.SQLException;
 import java.util.Collections;
 
-@ComponentScan(basePackages = "edu.hm.cs.pblv.group3")
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+import edu.hm.cs.pblv.group3.entities.Ingredient;
+
 @SpringBootApplication
 public class Main {
 	
@@ -22,11 +19,7 @@ public class Main {
 		if (System.getenv("PORT") != null) {
 			app.setDefaultProperties(Collections.singletonMap("server.port", System.getenv("PORT")));
 		}
-		app.run(args);
-		
-		
-		ing = new Ingredient(12, "Gin");
-		
+		app.run(args);		
 	}
 
 }
