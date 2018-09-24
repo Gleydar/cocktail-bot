@@ -1,14 +1,8 @@
 package edu.hm.cs.pblv.group3.entities;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Cocktail {
@@ -36,11 +30,15 @@ public class Cocktail {
 	
 	private float rating;
 	
-	@OneToMany(mappedBy="cocktail")
-	private List<Ingredients> ingredients = new ArrayList<>();
+	@ManyToMany(mappedBy="coktail")
+	private List<Ingredient> ingredients = new ArrayList<>();
+
+	public Cocktail() {
+
+	}
 
 	public Cocktail(long cockId, String name, String picture, boolean alcoholic, String instructions, String category,
-			String glass, float rating, List<Ingredients> ingredients) {
+			String glass, float rating, List<Ingredient> ingredients) {
 		super();
 		this.cockId = cockId;
 		this.name = name;
@@ -117,20 +115,12 @@ public class Cocktail {
 		this.rating = rating;
 	}
 
-	public List<Ingredients> getIngredients() {
+	public List<Ingredient> getIngredients() {
 		return ingredients;
 	}
 
-	public void setIngredients(List<Ingredients> ingredients) {
+	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
-
-	
-	
-	
-	
-	
-	
-	
 
 }
