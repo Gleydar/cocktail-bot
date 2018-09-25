@@ -1,6 +1,8 @@
 package edu.hm.cs.pblv.group3.main;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class CockCsv {
 	
@@ -18,11 +20,13 @@ public class CockCsv {
 	
 	private String glass;
 	
-	private float rating;
+	private String rating;
+
+	private Set<IngredientCsv> ingredients;
 	
 
 	public CockCsv(long cockId, String name, String picture, boolean alcoholic, String instructions, String category,
-			String glass, float rating) {
+			String glass, String rating, Set<IngredientCsv> ingredients) {
 		super();
 		this.cockId = cockId;
 		this.name = name;
@@ -32,6 +36,7 @@ public class CockCsv {
 		this.category = category;
 		this.glass = glass;
 		this.rating = rating;
+		this.ingredients = ingredients;
 	}
 
 	public long getCockId() {
@@ -90,31 +95,31 @@ public class CockCsv {
 		this.glass = glass;
 	}
 
-	public float getRating() {
+	public String getRating() {
 		return rating;
 	}
 
-	public void setRating(float rating) {
+	public void setRating(String rating) {
 		this.rating = rating;
 	}
 
-//	public List<IngredientCsv> getIngredients() {
-//		return ingredients;
-//	}
+	public Set<IngredientCsv> getIngredients() {
+		return ingredients;
+	}
 
-//	public void setIngredients(List<IngredientCsv> ingredients) {
-//		this.ingredients = ingredients;
-//	}
+	public void setIngredients(Set<IngredientCsv> ingredients) {
+		this.ingredients = ingredients;
+	}
 	
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append(String.format("INSERT INTO Cocktail (cock_Id, name, picture, alcoholic, instructions, category, glass, rating) VALUES (%d, '%s', %s, %b, '%s', '%s', '%s', %f)\r\n",
+		sb.append(String.format("INSERT INTO Cocktail (cock_Id, name, picture, alcoholic, instructions, category, glass, rating) VALUES (%d, '%s', %s, %b, '%s', '%s', '%s', %s)\r\n",
 				cockId, name, picture, alcoholic, instructions, category, glass, rating));
 		
-//		for(IngredientCsv ing : ingredients) {
-//			sb.append(String.format("INSERT INTO INGREDIENT (Ingredient, Oz, Cocktail_cock_id) VALUES ('%s', %f, %d);\r\n", ing.getIngredient(), ing.getOz(), cockId));
-//		}
+		for(IngredientCsv ing : ingredients) {
+			sb.append(String.format("INSERT INTO INGREDIENT (Ingredient, Oz, Cocktail_cock_id) VALUES ('%s', %s, %d);\r\n", ing.getIngredient(), ing.getOz(), cockId));
+		}
 		
 		return sb.toString();
 		

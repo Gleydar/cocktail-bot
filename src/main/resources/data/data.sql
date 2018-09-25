@@ -1,1 +1,0 @@
-INSERT INTO Ingredient (Name) VALUES ('Gin')

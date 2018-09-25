@@ -6,11 +6,11 @@ public class IngredientCsv {
 	
 	private String ingredient;
 	
-	private int oz;
+	private String oz;
 	
 	
 
-	public IngredientCsv(String ingredient, int oz) {
+	public IngredientCsv(String ingredient, String oz) {
 		super();
 		this.ingredient = ingredient;
 		this.oz = oz;
@@ -24,11 +24,11 @@ public class IngredientCsv {
 		this.ingredient = ingredient;
 	}
 
-	public int getOz() {
+	public String getOz() {
 		return oz;
 	}
 
-	public void setOz(int oz) {
+	public void setOz(String oz) {
 		this.oz = oz;
 	}
 	
