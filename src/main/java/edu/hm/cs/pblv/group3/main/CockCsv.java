@@ -20,10 +20,9 @@ public class CockCsv {
 	
 	private float rating;
 	
-	private List<IngredientCsv> ingredients;
 
 	public CockCsv(long cockId, String name, String picture, boolean alcoholic, String instructions, String category,
-			String glass, float rating, List<IngredientCsv> ingredients) {
+			String glass, float rating) {
 		super();
 		this.cockId = cockId;
 		this.name = name;
@@ -33,7 +32,6 @@ public class CockCsv {
 		this.category = category;
 		this.glass = glass;
 		this.rating = rating;
-		this.ingredients = ingredients;
 	}
 
 	public long getCockId() {
@@ -100,13 +98,13 @@ public class CockCsv {
 		this.rating = rating;
 	}
 
-	public List<IngredientCsv> getIngredients() {
-		return ingredients;
-	}
+//	public List<IngredientCsv> getIngredients() {
+//		return ingredients;
+//	}
 
-	public void setIngredients(List<IngredientCsv> ingredients) {
-		this.ingredients = ingredients;
-	}
+//	public void setIngredients(List<IngredientCsv> ingredients) {
+//		this.ingredients = ingredients;
+//	}
 	
 	@Override
 	public String toString() {
@@ -114,9 +112,9 @@ public class CockCsv {
 		sb.append(String.format("INSERT INTO Cocktail (cock_Id, name, picture, alcoholic, instructions, category, glass, rating) VALUES (%d, '%s', %s, %b, '%s', '%s', '%s', %f)\r\n",
 				cockId, name, picture, alcoholic, instructions, category, glass, rating));
 		
-		for(IngredientCsv ing : ingredients) {
-			sb.append(String.format("INSERT INTO INGREDIENT (Ingredient, Oz, Cocktail_cock_id) VALUES ('%s', %f, %d);\r\n", ing.getIngredient(), ing.getOz(), cockId));
-		}
+//		for(IngredientCsv ing : ingredients) {
+//			sb.append(String.format("INSERT INTO INGREDIENT (Ingredient, Oz, Cocktail_cock_id) VALUES ('%s', %f, %d);\r\n", ing.getIngredient(), ing.getOz(), cockId));
+//		}
 		
 		return sb.toString();
 		
