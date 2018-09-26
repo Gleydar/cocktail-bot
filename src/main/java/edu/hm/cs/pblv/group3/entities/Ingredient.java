@@ -2,42 +2,34 @@ package edu.hm.cs.pblv.group3.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
 
+@IdClass(ZusammengesetzerPK.class)
 @Entity
 public class Ingredient {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long ingredientId;
-
-
 	@Column(length = 128)
 	private String name;
 
+	@Id
 	@ManyToOne
 	private Cocktail cocktail;
+	
+	private String oz;
 
 
 	public Ingredient() {
 
 	}
 
-	public Ingredient(long ingredientId, String name) {
+	public Ingredient(String name, Cocktail cocktail, String oz) {
 		super();
-		this.ingredientId = ingredientId;
+		this.cocktail = cocktail;
 		this.name = name;
-	}
-
-	public long getIngredientId() {
-		return ingredientId;
-	}
-
-	public void setIngredientId(long ingredientId) {
-		this.ingredientId = ingredientId;
+		this.oz = oz;
 	}
 
 	public String getName() {
@@ -52,7 +44,18 @@ public class Ingredient {
 		return cocktail;
 	}
 
-	public void setCocktails(Cocktail cocktail) {
+	public void setCocktail(Cocktail cocktail) {
 		this.cocktail = cocktail;
 	}
+
+	public String getOz() {
+		return oz;
+	}
+
+	public void setOz(String oz) {
+		this.oz = oz;
+	}
+
+	
+	
 }

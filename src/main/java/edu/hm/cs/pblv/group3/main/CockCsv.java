@@ -20,14 +20,12 @@ public class CockCsv {
 	private String category;
 	
 	private String glass;
-	
-	private String rating;
 
 	private Set<IngredientCsv> ingredients;
 	
 
 	public CockCsv(long cockId, String name, String picture, boolean alcoholic, String instructions, String category,
-			String glass, String rating, Set<IngredientCsv> ingredients) {
+			String glass, Set<IngredientCsv> ingredients) {
 		super();
 		this.cockId = cockId;
 		this.name = escapeSQL(name);
@@ -36,7 +34,6 @@ public class CockCsv {
 		this.instructions = escapeSQL(instructions);
 		this.category = escapeSQL(category);
 		this.glass = escapeSQL(glass);
-		this.rating = rating;
 		this.ingredients = ingredients;
 	}
 
@@ -94,14 +91,6 @@ public class CockCsv {
 
 	public void setGlass(String glass) {
 		this.glass = glass;
-	}
-
-	public String getRating() {
-		return rating;
-	}
-
-	public void setRating(String rating) {
-		this.rating = rating;
 	}
 
 	public Set<IngredientCsv> getIngredients() {

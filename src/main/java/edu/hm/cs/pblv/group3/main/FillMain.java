@@ -48,7 +48,7 @@ public class FillMain {
 
 				CockCsv cocktail = new CockCsv(Long.parseLong(tmp[toNumber("A")]), tmp[toNumber("B")],
 						tmp[toNumber("G")], !tmp[toNumber("E")].equalsIgnoreCase("Non alcoholic"), tmp[toNumber("Y")],
-						tmp[toNumber("F")], tmp[toNumber("H")], tmp[toNumber("I")], ingredients);
+						tmp[toNumber("F")], tmp[toNumber("H")], ingredients);
 
 				tmp = data.readCSVLine();
 				// System.out.println(cocktail.toString());
