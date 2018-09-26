@@ -14,7 +14,7 @@ public class JsonResponseTemplate {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode root = mapper.createObjectNode();
 
-		// Add fulfillmentMessages
+		// Add fulfillmentMessages (we use this with Actions on Google as well)
 		ArrayNode fulfillmentMessages = mapper.createArrayNode();
 
 		// Add payload specific for Actions on Google
@@ -24,8 +24,9 @@ public class JsonResponseTemplate {
 		ArrayNode contexts = mapper.createArrayNode();
 
 		root.set("outputContexts", contexts);
-	//	root.set("payload", payload);
+		//	root.set("payload", payload);
 		root.set("fulfillmentMessages", fulfillmentMessages);
+		root.put("fulfillmentText", "Here are some suggestions"); // TODO language!
 		return root;
 	}
 }

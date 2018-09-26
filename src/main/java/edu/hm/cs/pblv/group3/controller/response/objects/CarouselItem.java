@@ -8,10 +8,11 @@ public class CarouselItem {
 	private CarouselItemInfo info;
 	private String title;
 	private String description = "A nice description";
-//	private CarouselImage image;
+	private CarouselImage image;
 
 	public CarouselItem(String title) {
 		this.info = new CarouselItemInfo(title);
+		this.image = new CarouselImage();
 		this.title = title;
 	}
 
@@ -39,12 +40,11 @@ public class CarouselItem {
 		this.description = description;
 	}
 
-/*	public CarouselImage getImage() {
+	public CarouselImage getImage() {
 		return image;
 	}
-*/
-/*	public void setImage(CarouselImage image) {
+
+	public void setImage(CarouselImage image) {
 		this.image = image;
 	}
-	*/
 }
