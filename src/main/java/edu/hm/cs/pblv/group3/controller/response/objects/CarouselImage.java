@@ -10,7 +10,7 @@ public class CarouselImage {
 
 	public CarouselImage() {
 		imageUri = "https://i.imgur.com/6mcbhC8.jpg";
-		accessibilityText = "Good doggo";
+		accessibilityText = "Default description";
 	}
 
 	public String getImageUri() {

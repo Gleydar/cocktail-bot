@@ -18,7 +18,12 @@ public class Controller {
 	public Controller() {
 			
 	}
-				
+
+	/**
+	 * This is the main method to handle the reponses
+	 * @param root The JsonNode request object
+	 * @return A json Representation of our {@link edu.hm.cs.pblv.group3.controller.response.objects.IFulfillmentMessage}
+	 */
 	@PostMapping("/cocktails")
 	public String cocktails(@RequestBody JsonNode root) {
 		String session = root.get("session").asText();
@@ -32,8 +37,6 @@ public class Controller {
 
 		JsonResponse response = new JsonResponse(session);
 		response.addMessage(message);
-//		response.addMessage(new InputPromtFulfillmentMessage());
-		System.out.println(response.toString());
 		return response.getResponse().toString();
 	}
 
