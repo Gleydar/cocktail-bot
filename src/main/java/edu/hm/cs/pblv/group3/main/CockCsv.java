@@ -1,8 +1,8 @@
 package edu.hm.cs.pblv.group3.main;
 
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
+
+import org.apache.commons.lang.StringEscapeUtils;
 
 public class CockCsv {
 	
@@ -29,12 +29,12 @@ public class CockCsv {
 			String glass, String rating, Set<IngredientCsv> ingredients) {
 		super();
 		this.cockId = cockId;
-		this.name = name;
-		this.picture = picture;
+		this.name = escapeSQL(name);
+		this.picture = escapeSQL(picture);
 		this.alcoholic = alcoholic;
-		this.instructions = instructions;
-		this.category = category;
-		this.glass = glass;
+		this.instructions = escapeSQL(instructions);
+		this.category = escapeSQL(category);
+		this.glass = escapeSQL(glass);
 		this.rating = rating;
 		this.ingredients = ingredients;
 	}
@@ -114,11 +114,11 @@ public class CockCsv {
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append(String.format("INSERT INTO Cocktail (cock_Id, name, picture, alcoholic, instructions, category, glass, rating) VALUES (%d, '%s', %s, %b, '%s', '%s', '%s', %s)\r\n",
-				cockId, name, picture, alcoholic, instructions, category, glass, rating));
+		sb.append(String.format("INSERT INTO Cocktail (cock_Id, name, picture, alcoholic, instructions, category, glass) VALUES (%d, '%s', '%s', %b, '%s', '%s', '%s');\r\n",
+				cockId, name, picture, alcoholic, instructions, category, glass));
 		
 		for(IngredientCsv ing : ingredients) {
-			sb.append(String.format("INSERT INTO INGREDIENT (Ingredient, Oz, Cocktail_cock_id) VALUES ('%s', %s, %d);\r\n", ing.getIngredient(), ing.getOz(), cockId));
+			sb.append(String.format("INSERT INTO INGREDIENT (Ingredient, Oz, Cocktail_cock_id) VALUES ('%s', '%s', %d);\r\n", ing.getIngredient(), ing.getOz(), cockId));
 		}
 		
 		return sb.toString();
@@ -127,6 +127,59 @@ public class CockCsv {
 		
 	}
 	
+	
+	public static String escapeSQL(String s) {
+		
+		return StringEscapeUtils.escapeSql(s);
+		
+//		int length = s.length();
+//		int newLength = length;
+//		// first check for characters that might
+//		// be dangerous and calculate a length
+//		// of the string that has escapes.
+//		for (int i = 0; i < length; i++) {
+//			char c = s.charAt(i);
+//			switch (c) {
+//			case '\\':
+//			case '\"':
+//			case '\'':
+//			case '\0': {
+//				newLength += 1;
+//			}
+//				break;
+//			}
+//		}
+//		if (length == newLength) {
+//			// nothing to escape in the string
+//			return s;
+//		}
+//		StringBuffer sb = new StringBuffer(newLength);
+//		for (int i = 0; i < length; i++) {
+//			char c = s.charAt(i);
+//			switch (c) {
+//			case '\\': {
+//				sb.append("\\\\");
+//			}
+//				break;
+//			case '\"': {
+//				sb.append("\\\"");
+//			}
+//				break;
+//			case '\'': {
+//				sb.append("\\\'");
+//			}
+//				break;
+//			case '\0': {
+//				sb.append("\\0");
+//			}
+//				break;
+//			default: {
+//				sb.append(c);
+//			}
+//			}
+//		}
+//		return sb.toString();
+	}
 	
 
 }

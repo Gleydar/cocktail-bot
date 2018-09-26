@@ -22,11 +22,11 @@ public class Ingredient {
 	@Id
 	private String ingredient;
 	
-	private int oz;
+	private String oz;
 	
 	public Ingredient() { }
 
-	public Ingredient(Cocktail cocktail, String ingredient, int oz) {
+	public Ingredient(Cocktail cocktail, String ingredient, String oz) {
 		super();
 		this.cocktail = cocktail;
 		this.ingredient = ingredient;
@@ -51,11 +51,11 @@ public class Ingredient {
 		this.ingredient = ingredient;
 	}
 
-	public int getOz() {
+	public String getOz() {
 		return oz;
 	}
 
-	public void setOz(int oz) {
+	public void setOz(String oz) {
 		this.oz = oz;
 	}
 	

@@ -2,19 +2,11 @@ package edu.hm.cs.pblv.group3.main;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.sql.PreparedStatement;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-import edu.hm.cs.pblv.group3.entities.Ingredient;
 import edu.hm.cs.pblv.group3.entities.setup.TransferingData;
-import edu.hm.cs.pblv.group3.repositories.IngredientRepository;
 
 public class FillMain {
 
@@ -47,6 +39,10 @@ public class FillMain {
 					}
 
 				}
+				
+//				DatabaseUtils 
+				
+				
 				CockCsv cocktail = new CockCsv(Long.parseLong(tmp[toNumber("A")]), tmp[toNumber("B")],
 						tmp[toNumber("G")], !tmp[toNumber("E")].equalsIgnoreCase("Non alcoholic"), tmp[toNumber("Y")],
 						tmp[toNumber("F")], tmp[toNumber("H")], tmp[toNumber("I")], ingredients);
@@ -63,5 +59,7 @@ public class FillMain {
 		}
 
 	}
+
+	
 
 }

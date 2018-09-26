@@ -1,7 +1,5 @@
 package edu.hm.cs.pblv.group3.main;
 
-import javax.persistence.Id;
-
 public class IngredientCsv {
 	
 	private String ingredient;
@@ -12,8 +10,8 @@ public class IngredientCsv {
 
 	public IngredientCsv(String ingredient, String oz) {
 		super();
-		this.ingredient = ingredient;
-		this.oz = oz;
+		this.ingredient = CockCsv.escapeSQL(ingredient);
+		this.oz = CockCsv.escapeSQL(oz);
 	}
 
 	public String getIngredient() {
