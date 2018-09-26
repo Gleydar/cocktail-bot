@@ -2,9 +2,8 @@ package edu.hm.cs.pblv.group3.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import edu.hm.cs.pblv.group3.controller.response.JsonResponse;
-import edu.hm.cs.pblv.group3.controller.response.objects.CarouselItem;
 import edu.hm.cs.pblv.group3.controller.response.objects.CarouselFulfillmentMessage;
-import edu.hm.cs.pblv.group3.controller.response.objects.InputPromtFulfillmentMessage;
+import edu.hm.cs.pblv.group3.controller.response.objects.CarouselItem;
 import edu.hm.cs.pblv.group3.entities.Cocktail;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,7 +32,7 @@ public class Controller {
 
 		JsonResponse response = new JsonResponse(session);
 		response.addMessage(message);
-		response.addMessage(new InputPromtFulfillmentMessage());
+//		response.addMessage(new InputPromtFulfillmentMessage());
 		System.out.println(response.toString());
 		return response.getResponse().toString();
 	}
