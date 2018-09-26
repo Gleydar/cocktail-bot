@@ -28,7 +28,7 @@ public class JsonResponse {
 	}
 
 	private void addContext(String session) {
-		ArrayNode contexts = (ArrayNode) response.get("contexts");
+		ArrayNode contexts = (ArrayNode) response.get("outputContexts");
 		ObjectMapper mapper = new ObjectMapper();
 		contexts.add(mapper.valueToTree(new Context(session)));
 	}
