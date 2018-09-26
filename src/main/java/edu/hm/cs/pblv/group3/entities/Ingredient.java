@@ -1,70 +1,54 @@
 package edu.hm.cs.pblv.group3.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.ArrayList;
 
 @Entity
-@IdClass(ZusammengesetzerPK.class)
 public class Ingredient {
-	
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-//	private long ingId;
-	
-	@Id
-	@ManyToOne
-	private Cocktail cocktail;
-	
-	@Id
-	private String ingredient;
-	
-	private String oz;
-	
-	public Ingredient() { }
 
-	public Ingredient(Cocktail cocktail, String ingredient, String oz) {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long ingredientId;
+
+
+	@Column(length = 128)
+	private String name;
+
+	@ManyToMany(mappedBy = "cocktail")
+	private ArrayList<Cocktail> cocktails;
+
+
+	public Ingredient() {
+
+	}
+
+	public Ingredient(long ingredientId, String name) {
 		super();
-		this.cocktail = cocktail;
-		this.ingredient = ingredient;
-		this.oz = oz;
+		this.ingredientId = ingredientId;
+		this.name = name;
 	}
 
-
-
-	public Cocktail getCocktail() {
-		return cocktail;
+	public long getIngredientId() {
+		return ingredientId;
 	}
 
-	public void setCocktail(Cocktail cocktail) {
-		this.cocktail = cocktail;
+	public void setIngredientId(long ingredientId) {
+		this.ingredientId = ingredientId;
 	}
 
-	public String getIngredient() {
-		return ingredient;
+	public String getName() {
+		return name;
 	}
 
-	public void setIngredient(String ingredient) {
-		this.ingredient = ingredient;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getOz() {
-		return oz;
+	public ArrayList<Cocktail> getCocktails() {
+		return cocktails;
 	}
 
-	public void setOz(String oz) {
-		this.oz = oz;
+	public void setCocktails(ArrayList<Cocktail> cocktails) {
+		this.cocktails = cocktails;
 	}
-	
-
-	
-
-	
-	
-	
-	
-
 }

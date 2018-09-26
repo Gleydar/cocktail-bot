@@ -1,10 +1,8 @@
 package edu.hm.cs.pblv.group3.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Cocktail {
@@ -30,14 +28,17 @@ public class Cocktail {
 	@Column(length = 128)
 	private String glass;
 	
-	@Column(nullable = true)
 	private float rating;
 	
-//	@OneToMany(mappedBy="cocktail")
-//	private List<Ingredient> ingredients = new ArrayList<>();
+	@ManyToMany(mappedBy="coktail")
+	private List<Ingredient> ingredients = new ArrayList<>();
+
+	public Cocktail() {
+
+	}
 
 	public Cocktail(long cockId, String name, String picture, boolean alcoholic, String instructions, String category,
-			String glass, float rating/*, List<Ingredient> ingredients**/) {
+			String glass, float rating, List<Ingredient> ingredients) {
 		super();
 		this.cockId = cockId;
 		this.name = name;
@@ -47,10 +48,8 @@ public class Cocktail {
 		this.category = category;
 		this.glass = glass;
 		this.rating = rating;
-//		this.ingredients = ingredients;
+		this.ingredients = ingredients;
 	}
-	
-	public Cocktail() {}
 
 	public long getCockId() {
 		return cockId;
@@ -115,27 +114,13 @@ public class Cocktail {
 	public void setRating(float rating) {
 		this.rating = rating;
 	}
-	
 
-//	public double calculateRating(User user) {
-//		
-//		
-//	}
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
 
-//	public List<Ingredient> getIngredients() {
-//		return ingredients;
-//	}
-//
-//	public void setIngredients(List<Ingredient> ingredients) {
-//		this.ingredients = ingredients;
-//	}
-
-	
-	
-	
-	
-	
-	
-	
+	public void setIngredients(List<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
 
 }
