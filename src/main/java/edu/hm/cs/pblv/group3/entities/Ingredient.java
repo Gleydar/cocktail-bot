@@ -1,7 +1,11 @@
 package edu.hm.cs.pblv.group3.entities;
 
-import javax.persistence.*;
-import java.util.ArrayList;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Ingredient {
@@ -14,8 +18,8 @@ public class Ingredient {
 	@Column(length = 128)
 	private String name;
 
-	@ManyToMany(mappedBy = "cocktail")
-	private ArrayList<Cocktail> cocktails;
+	@ManyToOne
+	private Cocktail cocktail;
 
 
 	public Ingredient() {
@@ -44,11 +48,11 @@ public class Ingredient {
 		this.name = name;
 	}
 
-	public ArrayList<Cocktail> getCocktails() {
-		return cocktails;
+	public Cocktail getCocktail() {
+		return cocktail;
 	}
 
-	public void setCocktails(ArrayList<Cocktail> cocktails) {
-		this.cocktails = cocktails;
+	public void setCocktails(Cocktail cocktail) {
+		this.cocktail = cocktail;
 	}
 }
