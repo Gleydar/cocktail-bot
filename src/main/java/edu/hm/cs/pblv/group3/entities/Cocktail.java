@@ -30,7 +30,7 @@ public class Cocktail {
 	
 	private float rating;
 	
-	@ManyToMany(mappedBy="coktail")
+	@OneToMany(mappedBy="coktail")
 	private List<Ingredient> ingredients = new ArrayList<>();
 
 	public Cocktail() {
