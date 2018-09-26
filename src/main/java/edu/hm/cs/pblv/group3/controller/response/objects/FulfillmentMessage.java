@@ -6,6 +6,7 @@ package edu.hm.cs.pblv.group3.controller.response.objects;
 public class FulfillmentMessage {
 
 	public CarouselSelect carouselSelect;
+	public String platform = "ACTIONS_ON_GOOGLE";
 
 	public FulfillmentMessage() {
 		this.carouselSelect = new CarouselSelect();
@@ -17,5 +18,13 @@ public class FulfillmentMessage {
 
 	public void setCarouselSelect(CarouselSelect carouselSelect) {
 		this.carouselSelect = carouselSelect;
+	}
+
+	public String getPlatform() {
+		return platform;
+	}
+
+	public void setPlatform(String platform) {
+		this.platform = platform;
 	}
 }

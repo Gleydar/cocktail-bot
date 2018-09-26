@@ -1,56 +1,126 @@
 package edu.hm.cs.pblv.group3.entities;
 
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
+@Entity
 public class Cocktail {
 	
-	private boolean alcoholic;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long cockId;
+	
+	@Column(length = 256)
 	private String name;
-	private List<CocktailCategory> categories;
+	
+	@Column(length = 1024)
 	private String picture;
-	private CocktailGlass glass;
-	private String instruction;
-	private Map<CocktailIngredient, Integer> ingrediences;
 	
+	private boolean alcoholic;
 	
+	@Column(length = 2048)
+	private String instructions;
 	
-	public Cocktail(boolean alcoholic, String name, List<CocktailCategory> categories, String picture,
-			CocktailGlass glass, String instruction, Map<CocktailIngredient, Integer> ingrediences) {
+	@Column(length = 128)
+	private String category;
+	
+	@Column(length = 128)
+	private String glass;
+	
+	private float rating;
+	
+	@ManyToMany(mappedBy="coktail")
+	private List<Ingredient> ingredients = new ArrayList<>();
+
+	public Cocktail() {
+
+	}
+
+	public Cocktail(long cockId, String name, String picture, boolean alcoholic, String instructions, String category,
+			String glass, float rating, List<Ingredient> ingredients) {
 		super();
-		this.alcoholic = alcoholic;
+		this.cockId = cockId;
 		this.name = name;
-		this.categories = categories;
 		this.picture = picture;
+		this.alcoholic = alcoholic;
+		this.instructions = instructions;
+		this.category = category;
 		this.glass = glass;
-		this.instruction = instruction;
-		this.ingrediences = ingrediences;
+		this.rating = rating;
+		this.ingredients = ingredients;
 	}
-	public boolean isAlcoholic() {
-		return alcoholic;
+
+	public long getCockId() {
+		return cockId;
 	}
+
+	public void setCockId(long cockId) {
+		this.cockId = cockId;
+	}
+
 	public String getName() {
 		return name;
 	}
-	public List<CocktailCategory> getCategories() {
-		return categories;
+
+	public void setName(String name) {
+		this.name = name;
 	}
+
 	public String getPicture() {
 		return picture;
 	}
-	public CocktailGlass getGlass() {
+
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+
+	public boolean isAlcoholic() {
+		return alcoholic;
+	}
+
+	public void setAlcoholic(boolean alcoholic) {
+		this.alcoholic = alcoholic;
+	}
+
+	public String getInstructions() {
+		return instructions;
+	}
+
+	public void setInstructions(String instructions) {
+		this.instructions = instructions;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getGlass() {
 		return glass;
 	}
-	public String getInstruction() {
-		return instruction;
+
+	public void setGlass(String glass) {
+		this.glass = glass;
 	}
-	public Map<CocktailIngredient, Integer> getIngrediences() {
-		return ingrediences;
+
+	public float getRating() {
+		return rating;
 	}
-	
-	
-	
-	
-	
+
+	public void setRating(float rating) {
+		this.rating = rating;
+	}
+
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(List<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
 
 }
