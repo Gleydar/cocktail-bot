@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringEscapeUtils;
 
+
 public class CockCsv {
 	
 	private long cockId;
