@@ -23,7 +23,7 @@ public class JsonResponseTemplate {
 		// TODO add context_back_to_start
 		ArrayNode contexts = mapper.createArrayNode();
 
-		root.set("contexts", contexts);
+		root.set("outputContexts", contexts);
 	//	root.set("payload", payload);
 		root.set("fulfillmentMessages", fulfillmentMessages);
 		return root;
