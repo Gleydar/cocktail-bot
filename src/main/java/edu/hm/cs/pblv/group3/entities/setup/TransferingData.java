@@ -3,11 +3,11 @@ package edu.hm.cs.pblv.group3.entities.setup;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class TransferringData {
+public class TransferingData {
 
 	BufferedReader reader;
 
-	public TransferringData(String dataPath) {
+	public TransferingData(String dataPath) {
 		try {
 			reader = new java.io.BufferedReader(
 					new java.io.FileReader(
@@ -31,9 +31,9 @@ public class TransferringData {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String[] tmp2 = tmp.split(";");
+//		String[] tmp2 = tmp.split(",");
 
-		return tmp2;
+		return tmp == null ? null : tmp.split(",");
 	}
 
 
