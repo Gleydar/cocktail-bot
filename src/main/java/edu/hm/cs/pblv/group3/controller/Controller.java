@@ -26,7 +26,7 @@ public class Controller {
 		FulfillmentMessage message = new FulfillmentMessage();
 
 		for (int i = 0; i < 3; i++) {
-			CarouselItem item = new CarouselItem("test");
+			CarouselItem item = new CarouselItem("test" + i);
 			message.getCarouselSelect().addItem(item);
 		}
 
