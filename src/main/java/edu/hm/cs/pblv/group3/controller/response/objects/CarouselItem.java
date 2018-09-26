@@ -12,6 +12,7 @@ public class CarouselItem {
 
 	public CarouselItem(String title) {
 		this.info = new CarouselItemInfo(title);
+		this.image = new CarouselImage();
 		this.title = title;
 	}
 
