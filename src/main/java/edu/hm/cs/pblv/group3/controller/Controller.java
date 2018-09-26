@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import edu.hm.cs.pblv.group3.controller.response.JsonResponse;
 import edu.hm.cs.pblv.group3.controller.response.objects.CarouselFulfillmentMessage;
 import edu.hm.cs.pblv.group3.controller.response.objects.CarouselItem;
+import edu.hm.cs.pblv.group3.controller.response.objects.SuggestionFulfillmentMessage;
 import edu.hm.cs.pblv.group3.entities.Cocktail;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +19,12 @@ public class Controller {
 	public Controller() {
 			
 	}
-				
+
+	/**
+	 * This is the main method to handle the reponses
+	 * @param root The JsonNode request object
+	 * @return A json Representation of our {@link edu.hm.cs.pblv.group3.controller.response.objects.IFulfillmentMessage}
+	 */
 	@PostMapping("/cocktails")
 	public String cocktails(@RequestBody JsonNode root) {
 		String session = root.get("session").asText();
@@ -32,8 +38,7 @@ public class Controller {
 
 		JsonResponse response = new JsonResponse(session);
 		response.addMessage(message);
-//		response.addMessage(new InputPromtFulfillmentMessage());
-		System.out.println(response.toString());
+		response.addMessage(new SuggestionFulfillmentMessage());
 		return response.getResponse().toString();
 	}
 
