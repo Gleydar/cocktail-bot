@@ -2,6 +2,7 @@ package edu.hm.cs.pblv.group3.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import edu.hm.cs.pblv.group3.model.entities.CocktailResult;
+import edu.hm.cs.pblv.group3.model.entities.Ingredient;
 import edu.hm.cs.pblv.group3.model.response.JsonResponse;
 import edu.hm.cs.pblv.group3.model.response.objects.CarouselFulfillmentMessage;
 import edu.hm.cs.pblv.group3.model.response.objects.CarouselItem;
@@ -38,11 +39,12 @@ public class Controller {
 		String query = root.get("queryResult").get("queryText").asText();
 
 		CarouselFulfillmentMessage message = new CarouselFulfillmentMessage();
-		Set<String> ingredients = new HashSet<>(); // TODO add Marcels Class
+		Set<Ingredient> ingredients = new HashSet<>(); // TODO add Marcels Class
 		List<CocktailResult> results = cockService.findTopCocktails(ingredients, 5);
 
 		for (CocktailResult result : results) {
 			CarouselItem item = new CarouselItem(result.getCocktail().getName());
+			item.setImageUri(result.getCocktail().getPicture());
 			message.getCarouselSelect().addItem(item);
 		}
 
