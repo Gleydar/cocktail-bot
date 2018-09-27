@@ -7,11 +7,12 @@ public class CarouselItem {
 
 	private CarouselItemInfo info;
 	private String title;
-	private String description;
+	private String description = "A nice description";
 	private CarouselImage image;
 
 	public CarouselItem(String title) {
 		this.info = new CarouselItemInfo(title);
+		this.image = new CarouselImage();
 		this.title = title;
 	}
 

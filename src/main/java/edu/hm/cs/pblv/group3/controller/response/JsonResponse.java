@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import edu.hm.cs.pblv.group3.controller.response.objects.Context;
-import edu.hm.cs.pblv.group3.controller.response.objects.FulfillmentMessage;
+import edu.hm.cs.pblv.group3.controller.response.objects.IFulfillmentMessage;
 import edu.hm.cs.pblv.group3.entities.Cocktail;
 
 import java.util.Arrays;
@@ -28,12 +28,12 @@ public class JsonResponse {
 	}
 
 	private void addContext(String session) {
-		ArrayNode contexts = (ArrayNode) response.get("contexts");
+		ArrayNode contexts = (ArrayNode) response.get("outputContexts");
 		ObjectMapper mapper = new ObjectMapper();
 		contexts.add(mapper.valueToTree(new Context(session)));
 	}
 
-	public void addMessage(FulfillmentMessage message) {
+	public void addMessage(IFulfillmentMessage message) {
 		ArrayNode messages = (ArrayNode)response.get("fulfillmentMessages");
 		ObjectMapper mapper = new ObjectMapper();
 		messages.add(mapper.valueToTree(message));

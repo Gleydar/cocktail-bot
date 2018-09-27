@@ -9,7 +9,8 @@ public class CarouselImage {
 	private String accessibilityText;
 
 	public CarouselImage() {
-
+		imageUri = "https://i.imgur.com/6mcbhC8.jpg";
+		accessibilityText = "Default description";
 	}
 
 	public String getImageUri() {
