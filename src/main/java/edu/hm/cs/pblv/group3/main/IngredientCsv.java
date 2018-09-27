@@ -1,5 +1,7 @@
 package edu.hm.cs.pblv.group3.main;
 
+import edu.hm.cs.pblv.group3.model.entities.CockCsv;
+
 public class IngredientCsv {
 	
 	private String ingredient;

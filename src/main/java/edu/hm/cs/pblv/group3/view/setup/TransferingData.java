@@ -1,4 +1,4 @@
-package edu.hm.cs.pblv.group3.entities.setup;
+package edu.hm.cs.pblv.group3.view.setup;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,8 +21,6 @@ public class TransferingData {
 
 
 	// Daten auslesen
-
-
 	public String[] readCSVLine() {
 		String tmp = "";
 		try {

@@ -1,4 +1,4 @@
-package edu.hm.cs.pblv.group3.controller.response;
+package edu.hm.cs.pblv.group3.model.response;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -18,14 +18,13 @@ public class JsonResponseTemplate {
 		ArrayNode fulfillmentMessages = mapper.createArrayNode();
 
 		// Add payload specific for Actions on Google
-		ObjectNode payload = mapper.createObjectNode();
+		// ObjectNode payload = mapper.createObjectNode();
 
 		// TODO add context_back_to_start
 		ArrayNode contexts = mapper.createArrayNode();
 
 		root.set("outputContexts", contexts);
 		//	root.set("payload", payload);
-		root.set("fulfillmentMessages", fulfillmentMessages);
 		root.put("fulfillmentText", "Here are some suggestions"); // TODO language!
 		return root;
 	}

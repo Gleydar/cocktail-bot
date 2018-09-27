@@ -1,13 +1,12 @@
 package edu.hm.cs.pblv.group3.main;
 
+import edu.hm.cs.pblv.group3.model.entities.CockCsv;
+import edu.hm.cs.pblv.group3.view.setup.TransferingData;
+
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-
-
-import edu.hm.cs.pblv.group3.entities.setup.TransferingData;
 
 
 public class FillMain {
