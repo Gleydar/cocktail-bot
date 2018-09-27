@@ -11,7 +11,6 @@ import edu.hm.cs.pblv.group3.view.services.CocktailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -36,6 +35,7 @@ public class Controller {
 		String language; // TODO
 		String query = root.get("queryResult").get("queryText").asText();
 		JsonResponse response = new JsonResponse(session);
+		System.out.println(query);
 
 		List<CocktailResult> results = cockService.findTopCocktails(query, 5);
 
@@ -49,11 +49,12 @@ public class Controller {
 
 			response.addMessage(message);
 			response.setResponseText("We found these cocktails, the best is a " + results.get(0).getMatch() + "% match.");
+			System.out.println("Found coktails");
 		} else {
-			SimpleResponse responses = new SimpleResponse("Sorry, we couldn't find anything for you");
-			ArrayList<SimpleResponse> simpleResponses = new ArrayList<>();
-			simpleResponses.add(responses);
-			response.addMessage(new SimpleResponsesFulfillmentMessage(simpleResponses));
+			SimpleResponsesFulfillmentMessage message = new SimpleResponsesFulfillmentMessage();
+			message.getSimpleResponses().addResponse(new SimpleResponse("We couldn't find anything for you"));
+			response.addMessage(message);
+			System.out.println("Found nothing");
 		}
 
 		return response.getResponse().toString();

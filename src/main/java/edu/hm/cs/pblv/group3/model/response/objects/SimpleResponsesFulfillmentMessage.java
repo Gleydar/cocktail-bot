@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 public class SimpleResponsesFulfillmentMessage implements IFulfillmentMessage {
 
-	private ArrayList<SimpleResponse> simpleResponses;
+	private SimpleResponses simpleResponses;
 	private String platform = "ACTIONS_ON_GOOGLE";
 
-	public SimpleResponsesFulfillmentMessage(ArrayList<SimpleResponse> simpleResponses) {
-		this.simpleResponses = simpleResponses;
+	public SimpleResponsesFulfillmentMessage() {
+		this.simpleResponses = new SimpleResponses();
 	}
 
-	public ArrayList<SimpleResponse> getSimpleResponses() {
+	public SimpleResponses getSimpleResponses() {
 		return simpleResponses;
 	}
 
-	public void setSimpleResponses(ArrayList<SimpleResponse> simpleResponses) {
+	public void setSimpleResponses(SimpleResponses simpleResponses) {
 		this.simpleResponses = simpleResponses;
 	}
 
