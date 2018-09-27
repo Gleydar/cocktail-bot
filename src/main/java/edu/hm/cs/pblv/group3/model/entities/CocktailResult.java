@@ -1,6 +1,6 @@
 package edu.hm.cs.pblv.group3.model.entities;
 
-public class CocktailResult implements Comparable<CocktailResult> {
+public class CocktailResult {
 
 	private final Cocktail cocktail;
 	private final double match;
@@ -20,13 +20,13 @@ public class CocktailResult implements Comparable<CocktailResult> {
 	}
 
 	@Override
-	public int compareTo(CocktailResult otherResult) {
-
-		double otherMatch = otherResult.getMatch();
-		double thisMatch = this.getMatch();
-
-		return Double.compare(otherMatch, thisMatch);
-
-		// return (int) otherResult.getMatch() - this.getMatch();
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cocktail == null) ? 0 : cocktail.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(match);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
 	}
 }
