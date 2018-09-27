@@ -44,17 +44,16 @@ public class Controller {
 			for (CocktailResult result : results) {
 				CarouselItem item = new CarouselItem(result.getCocktail().getName());
 				item.setImageUri(result.getCocktail().getPicture());
+				item.setDescription("Category: " + result.getCocktail().getCategory());
 				message.getCarouselSelect().addItem(item);
 			}
 
 			response.addMessage(message);
 			response.setResponseText("We found these cocktails, the best is a " + results.get(0).getMatch() + "% match.");
-			System.out.println("Found coktails");
 		} else {
 			SimpleResponsesFulfillmentMessage message = new SimpleResponsesFulfillmentMessage();
 			message.getSimpleResponses().addResponse(new SimpleResponse("We couldn't find anything for you"));
 			response.addMessage(message);
-			System.out.println("Found nothing");
 		}
 
 		return response.getResponse().toString();
