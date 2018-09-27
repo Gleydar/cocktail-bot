@@ -1,11 +1,12 @@
-package edu.hm.cs.pblv.group3.controller.response;
+package edu.hm.cs.pblv.group3.model.response;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import edu.hm.cs.pblv.group3.controller.response.objects.Context;
-import edu.hm.cs.pblv.group3.controller.response.objects.IFulfillmentMessage;
-import edu.hm.cs.pblv.group3.entities.Cocktail;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import edu.hm.cs.pblv.group3.model.response.objects.Context;
+import edu.hm.cs.pblv.group3.model.response.objects.IFulfillmentMessage;
+import edu.hm.cs.pblv.group3.model.entities.Cocktail;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,6 +38,10 @@ public class JsonResponse {
 		ArrayNode messages = (ArrayNode)response.get("fulfillmentMessages");
 		ObjectMapper mapper = new ObjectMapper();
 		messages.add(mapper.valueToTree(message));
+	}
+
+	public void setResponseText(String text) {
+		((ObjectNode)response).put("fulfillmentMessage", text);
 	}
 
 	private void addCocktails() {

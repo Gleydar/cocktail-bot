@@ -1,4 +1,4 @@
-package edu.hm.cs.pblv.group3.controller.response.objects;
+package edu.hm.cs.pblv.group3.model.response.objects;
 
 import java.util.ArrayList;
 
