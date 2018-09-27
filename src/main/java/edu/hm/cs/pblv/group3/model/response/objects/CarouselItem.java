@@ -40,6 +40,14 @@ public class CarouselItem {
 		this.description = description;
 	}
 
+	public void setImageUri(String uri) {
+		getImage().setImageUri(uri);
+	}
+
+	public void setImageAccessibility(String name) {
+		getImage().setAccessibilityText(name);
+	}
+
 	public CarouselImage getImage() {
 		return image;
 	}
