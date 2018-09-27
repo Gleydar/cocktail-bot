@@ -1,4 +1,4 @@
-package edu.hm.cs.pblv.group3.controller.response.objects;
+package edu.hm.cs.pblv.group3.model.response.objects;
 
 /**
  * @author Konstantin on 21.09.2018.
@@ -38,6 +38,14 @@ public class CarouselItem {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public void setImageUri(String uri) {
+		getImage().setImageUri(uri);
+	}
+
+	public void setImageAccessibility(String name) {
+		getImage().setAccessibilityText(name);
 	}
 
 	public CarouselImage getImage() {
