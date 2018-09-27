@@ -20,7 +20,6 @@ public class Ingredient {
 	
 	private String oz;
 
-
 	public Ingredient() {
 
 	}
