@@ -41,7 +41,7 @@ public class JsonResponse {
 	}
 
 	public void setResponseText(String text) {
-		((ObjectNode)response).put("fulfillmentMessage", text);
+		((ObjectNode)response).put("fulfillmentText", text);
 	}
 
 	private void addCocktails() {
