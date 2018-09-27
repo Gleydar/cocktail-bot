@@ -25,15 +25,9 @@ public class CocktailService {
 		this.ingRepo = ingRepo;
 	}
 
-	public List<CocktailResult> findTopCocktails(Set<String> ingredients, int top) {
+	public List<CocktailResult> findTopCocktails(Set<Ingredient> ingredients, int top) {
 		int numberOfIngredients = ingredients.size();
-		List<Ingredient> ingList = new ArrayList<>();
-		ingredients.stream().map(ingRepo::findByName).forEach(ingList::addAll);
-
-		List<Cocktail> foundCocktails = ingList.stream().map(Ingredient::getCocktail).collect(Collectors.toList());
-
-//		Collectors.coun
-
+		List<Cocktail> foundCocktails = ingredients.stream().map(Ingredient::getCocktail).collect(Collectors.toList());
 
 		Map<Cocktail, Long> cocktailsContainIngredients = foundCocktails.stream().distinct().collect(Collectors.toMap(cock -> cock, cock -> foundCocktails.stream().filter(entry -> entry == cock).count()));
 
@@ -52,13 +46,10 @@ public class CocktailService {
 //		System.out.println("\n\nUnsortiert\n---------------------");
 //		matches.forEach(x -> System.out.println("Cockid " + x.getCocktail().getCockId() + ", match " + x.getMatch()));
 
-		matches.sort(new Comparator<CocktailResult>() {
+		matches.sort((first, second) -> {
 
-			@Override
-			public int compare(CocktailResult first, CocktailResult second) {
-
-				double firstMatch = first.getMatch();
-				double secondMatch = second.getMatch();
+			double firstMatch = first.getMatch();
+			double secondMatch = second.getMatch();
 
 //				if((firstMatch - secondMatch) > 0) {
 //					System.out.println("Größer 0");
@@ -67,10 +58,9 @@ public class CocktailService {
 //					System.out.println("Größer 0");
 //				}
 
-				return firstMatch == secondMatch ? 0 : firstMatch - secondMatch < 0 ? 1 : -1;
+			return firstMatch == secondMatch ? 0 : firstMatch - secondMatch < 0 ? 1 : -1;
 
 //				return (int) (firstMatch - secondMatch);
-			}
 		});
 
 //		System.out.println("\n\nSortiert\n---------------------");
