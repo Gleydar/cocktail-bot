@@ -25,7 +25,7 @@ public class JsonResponseTemplate {
 
 		root.set("outputContexts", contexts);
 		//	root.set("payload", payload);
-		root.put("fulfillmentText", "Here are some suggestions"); // TODO language!
+		root.set("fulfillmentMessages", fulfillmentMessages);
 		return root;
 	}
 }

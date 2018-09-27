@@ -34,11 +34,10 @@ public class Controller {
 		String query = root.get("queryResult").get("queryText").asText();
 		JsonResponse response = new JsonResponse(session);
 
-		CarouselFulfillmentMessage message = new CarouselFulfillmentMessage();
-		
 		List<CocktailResult> results = cockService.findTopCocktails(query, 5);
 
 		if (results.size() != 0) {
+			CarouselFulfillmentMessage message = new CarouselFulfillmentMessage();
 			for (CocktailResult result : results) {
 				CarouselItem item = new CarouselItem(result.getCocktail().getName());
 				item.setImageUri(result.getCocktail().getPicture());
@@ -52,33 +51,5 @@ public class Controller {
 		}
 
 		return response.getResponse().toString();
-	}
-	
-	@GetMapping("/test")
-	public OutputObj cocktails(@RequestParam(value = "input") String input) {
-		
-		List<CocktailResult> results = cockService.findTopCocktails(input, 5);
-		
-		return new OutputObj(results);
-		
-		
-	}
-	
-	
-}
-
-class OutputObj {
-	
-	List<CocktailResult> cocktails;
-	
-	public OutputObj() {}
-
-	public OutputObj(List<CocktailResult> cocktails) {
-		super();
-		this.cocktails = cocktails;
-	}
-
-	public List<CocktailResult> getCocktails() {
-		return cocktails;
 	}
 }
