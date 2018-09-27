@@ -31,20 +31,26 @@ public class Controller {
 	public String cocktails(@RequestBody JsonNode root) {
 		String session = root.get("session").asText();
 		String language; // TODO
-		String query = root.get("queryResult").get("queryText").asText().toLowerCase();
+		String query = root.get("queryResult").get("queryText").asText();
+		JsonResponse response = new JsonResponse(session);
 
 		CarouselFulfillmentMessage message = new CarouselFulfillmentMessage();
 		
 		List<CocktailResult> results = cockService.findTopCocktails(query, 5);
 
-		for (CocktailResult result : results) {
-			CarouselItem item = new CarouselItem(result.getCocktail().getName());
-			item.setImageUri(result.getCocktail().getPicture());
-			message.getCarouselSelect().addItem(item);
+		if (results.size() != 0) {
+			for (CocktailResult result : results) {
+				CarouselItem item = new CarouselItem(result.getCocktail().getName());
+				item.setImageUri(result.getCocktail().getPicture());
+				message.getCarouselSelect().addItem(item);
+			}
+
+			response.addMessage(message);
+			response.setResponseText("We found these cocktails, the best is a " + results.get(0).getMatch() + "% match.");
+		} else {
+			response.setResponseText("Sorry, but we couldn't find any cocktails for you");
 		}
 
-		JsonResponse response = new JsonResponse(session);
-		response.addMessage(message);
 		return response.getResponse().toString();
 	}
 	
