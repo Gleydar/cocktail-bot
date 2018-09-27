@@ -1,21 +1,15 @@
 package edu.hm.cs.pblv.group3.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.fasterxml.jackson.databind.JsonNode;
-
 import edu.hm.cs.pblv.group3.model.entities.CocktailResult;
 import edu.hm.cs.pblv.group3.model.response.JsonResponse;
 import edu.hm.cs.pblv.group3.model.response.objects.CarouselFulfillmentMessage;
 import edu.hm.cs.pblv.group3.model.response.objects.CarouselItem;
 import edu.hm.cs.pblv.group3.view.services.CocktailService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class Controller {
@@ -37,7 +31,7 @@ public class Controller {
 	public String cocktails(@RequestBody JsonNode root) {
 		String session = root.get("session").asText();
 		String language; // TODO
-		String query = root.get("queryResult").get("queryText").asText();
+		String query = root.get("queryResult").get("queryText").asText().toLowerCase();
 
 		CarouselFulfillmentMessage message = new CarouselFulfillmentMessage();
 		
