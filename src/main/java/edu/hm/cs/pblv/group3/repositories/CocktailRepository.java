@@ -7,5 +7,7 @@ import edu.hm.cs.pblv.group3.entities.Cocktail;
 
 @Repository
 public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
+	
+//	public 
 
 }
