@@ -1,8 +1,10 @@
 package edu.hm.cs.pblv.group3.services;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -39,10 +41,46 @@ public class CocktailService {
 //		Collectors.coun
 
 		
-		Map<Cocktail, Long> cocktailsContainIngredients = foundCocktails.stream().distinct().collect(Collectors.groupingBy(cock -> cock, Collectors.counting()));
+		Map<Cocktail, Long> cocktailsContainIngredients = foundCocktails.stream().distinct().collect(Collectors.toMap(cock -> cock, cock -> foundCocktails.stream().filter(entry -> entry == cock).count()));
 		
-		List<CocktailResult> matches = foundCocktails.stream().distinct().map(cock -> new CocktailResult(cock, (double) numberOfIngredients / cocktailsContainIngredients.get(cock))).collect(Collectors.toList());
+//		for(Entry<Cocktail, Long> e : cocktailsContainIngredients.entrySet()) {
+//			if(e.getKey().getCockId() == 8) {
+//				System.out.println("Cockid 8 gefunden. " + e.getValue());
+//			}
+//			else {
+//				System.out.println("Cockid " + e.getKey().getCockId() + ", count " + e.getValue());
+//			}
+//		}
 		
-		return matches.subList(0, top);
+		
+		List<CocktailResult> matches = new ArrayList<>(foundCocktails.stream().distinct().map(cock -> new CocktailResult(cock, ((double) cocktailsContainIngredients.get(cock)) / ((double) numberOfIngredients))).collect(Collectors.toList()));
+		
+//		System.out.println("\n\nUnsortiert\n---------------------");
+//		matches.forEach(x -> System.out.println("Cockid " + x.getCocktail().getCockId() + ", match " + x.getMatch()));
+		
+		matches.sort(new Comparator<CocktailResult>() {
+
+			@Override
+			public int compare(CocktailResult first, CocktailResult second) {
+				
+				double firstMatch = first.getMatch();
+				double secondMatch = second.getMatch();
+				
+//				if((firstMatch - secondMatch) > 0) {
+//					System.out.println("Größer 0");
+//				}
+//				else if((firstMatch - secondMatch) < 0)) {
+//					System.out.println("Größer 0");
+//				}
+				
+				return firstMatch == secondMatch ? 0 : firstMatch - secondMatch < 0 ? 1 : -1;
+				
+//				return (int) (firstMatch - secondMatch);
+			}});
+		
+//		System.out.println("\n\nSortiert\n---------------------");
+//		matches.forEach(x -> System.out.println("Cockid " + x.getCocktail().getCockId() + ", match " + x.getMatch()));
+		
+		return matches.size() < top ? matches : matches.subList(0, top);
 	}
 }

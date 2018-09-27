@@ -69,6 +69,8 @@ class InputObj {
 	
 	Set<String> ingredients;
 	
+	public InputObj() {}
+	
 	
 
 	public InputObj(Set<String> ingredients) {
@@ -90,6 +92,8 @@ class InputObj {
 class OutputObj {
 	
 	List<CocktailResult> cocktails;
+	
+	public OutputObj() {}
 
 	public OutputObj(List<CocktailResult> cocktails) {
 		super();

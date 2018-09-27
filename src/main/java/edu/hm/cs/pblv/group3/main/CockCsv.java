@@ -108,7 +108,7 @@ public class CockCsv {
 				cockId, name, picture, alcoholic, instructions, category, glass));
 		
 		for(IngredientCsv ing : ingredients) {
-			sb.append(String.format("INSERT INTO INGREDIENT (Ingredient, Oz, Cocktail_cock_id) VALUES ('%s', '%s', %d);\r\n", ing.getIngredient(), ing.getOz(), cockId));
+			sb.append(String.format("INSERT INTO INGREDIENT (name, Oz, Cocktail_cock_id) VALUES ('%s', '%s', %d);\r\n", ing.getIngredient(), ing.getOz(), cockId));
 		}
 		
 		return sb.toString();
