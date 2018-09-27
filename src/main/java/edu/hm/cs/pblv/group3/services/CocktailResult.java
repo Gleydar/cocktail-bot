@@ -2,7 +2,7 @@ package edu.hm.cs.pblv.group3.services;
 
 import edu.hm.cs.pblv.group3.entities.Cocktail;
 
-public class CocktailResult implements Comparable<CocktailResult> {
+public class CocktailResult {
 
 	private final Cocktail cocktail;
 	private final double match;
@@ -21,14 +21,37 @@ public class CocktailResult implements Comparable<CocktailResult> {
 		return match;
 	}
 
+	
+
 	@Override
-	public int compareTo(CocktailResult otherResult) {
-
-		double otherMatch = otherResult.getMatch();
-		double thisMatch = this.getMatch();
-
-		return otherMatch == thisMatch ? 0 : otherMatch < thisMatch ? -1 : 1;
-
-		// return (int) otherResult.getMatch() - this.getMatch();
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cocktail == null) ? 0 : cocktail.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(match);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CocktailResult other = (CocktailResult) obj;
+		if (cocktail == null) {
+			if (other.cocktail != null)
+				return false;
+		} else if (!cocktail.equals(other.cocktail))
+			return false;
+		if (Double.doubleToLongBits(match) != Double.doubleToLongBits(other.match))
+			return false;
+		return true;
+	}
+	
+	
 }
