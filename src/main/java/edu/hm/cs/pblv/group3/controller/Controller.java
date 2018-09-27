@@ -5,10 +5,13 @@ import edu.hm.cs.pblv.group3.model.entities.CocktailResult;
 import edu.hm.cs.pblv.group3.model.response.JsonResponse;
 import edu.hm.cs.pblv.group3.model.response.objects.CarouselFulfillmentMessage;
 import edu.hm.cs.pblv.group3.model.response.objects.CarouselItem;
+import edu.hm.cs.pblv.group3.model.response.objects.SimpleResponse;
+import edu.hm.cs.pblv.group3.model.response.objects.SimpleResponsesFulfillmentMessage;
 import edu.hm.cs.pblv.group3.view.services.CocktailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -47,7 +50,10 @@ public class Controller {
 			response.addMessage(message);
 			response.setResponseText("We found these cocktails, the best is a " + results.get(0).getMatch() + "% match.");
 		} else {
-			response.setResponseText("Sorry, but we couldn't find any cocktails for you");
+			SimpleResponse responses = new SimpleResponse("Sorry, we couldn't find anything for you");
+			ArrayList<SimpleResponse> simpleResponses = new ArrayList<>();
+			simpleResponses.add(responses);
+			response.addMessage(new SimpleResponsesFulfillmentMessage(simpleResponses));
 		}
 
 		return response.getResponse().toString();
