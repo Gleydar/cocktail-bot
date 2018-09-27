@@ -7,26 +7,19 @@ import java.util.Set;
 
 
 public class CockCsv {
-	
+
 	private long cockId;
-	
 	private String name;
-
 	private String picture;
-	
 	private boolean alcoholic;
-	
 	private String instructions;
-	
 	private String category;
-	
 	private String glass;
-
 	private Set<IngredientCsv> ingredients;
-	
+
 
 	public CockCsv(long cockId, String name, String picture, boolean alcoholic, String instructions, String category,
-			String glass, Set<IngredientCsv> ingredients) {
+	               String glass, Set<IngredientCsv> ingredients) {
 		super();
 		this.cockId = cockId;
 		this.name = escapeSQL(name);
@@ -101,28 +94,27 @@ public class CockCsv {
 	public void setIngredients(Set<IngredientCsv> ingredients) {
 		this.ingredients = ingredients;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
 		sb.append(String.format("INSERT INTO Cocktail (cock_Id, name, picture, alcoholic, instructions, category, glass) VALUES (%d, '%s', '%s', %b, '%s', '%s', '%s');\r\n",
 				cockId, name, picture, alcoholic, instructions, category, glass));
-		
-		for(IngredientCsv ing : ingredients) {
+
+		for (IngredientCsv ing : ingredients) {
 			sb.append(String.format("INSERT INTO INGREDIENT (Ingredient, Oz, Cocktail_cock_id) VALUES ('%s', '%s', %d);\r\n", ing.getIngredient(), ing.getOz(), cockId));
 		}
-		
+
 		return sb.toString();
-		
-		
-		
+
+
 	}
-	
-	
+
+
 	public static String escapeSQL(String s) {
-		
+
 		return StringEscapeUtils.escapeSql(s);
-		
+
 //		int length = s.length();
 //		int newLength = length;
 //		// first check for characters that might
@@ -171,6 +163,6 @@ public class CockCsv {
 //		}
 //		return sb.toString();
 	}
-	
+
 
 }
